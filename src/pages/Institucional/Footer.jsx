@@ -5,7 +5,7 @@ import SectionArea from "../../components/sectionElements/SectionArea";
 export default function Footer() {
   return (
     <SectionArea paddingTopAndBottom={false}>
-      <footer className="bg-[#07202D] text-white py-16 border-t w-full border-[#C03D1A]">
+      <footer className="bg-primaryDark text-white py-16 border-t w-full border-[#C03D1A]">
         <div className="flex flex-col tablet2:flex-row items-center justify-center gap-12">
           {/* COLUNA 1 - LOGO */}
           <div className="flex">
@@ -19,7 +19,9 @@ export default function Footer() {
           {/* COLUNA 2 - LINKS */}
           <div className="space-y-10 text-sm flex flex-col tablet2:h-112 ">
             <div>
-              <h3 className="text-[#C03D1A] font-semibold mb-3">SOBRE NÓS</h3>
+              <h3 className="text-primaryLight font-semibold mb-3">
+                SOBRE NÓS
+              </h3>
               <ul className="space-y-2 text-gray-300">
                 <li>Carreira</li>
                 <li>Contato</li>
@@ -28,11 +30,13 @@ export default function Footer() {
             </div>
 
             <div>
-              <h3 className="text-[#C03D1A] font-semibold mb-3">ADVOGADOS</h3>
+              <h3 className="text-primaryLight font-semibold mb-3">
+                ADVOGADOS
+              </h3>
             </div>
 
             <div>
-              <h3 className="text-[#C03D1A] font-semibold mb-3">
+              <h3 className="text-primaryLight font-semibold mb-3">
                 NOTÍCIAS E PUBLICAÇÕES
               </h3>
               <ul className="space-y-2 text-gray-300">
@@ -44,13 +48,13 @@ export default function Footer() {
             </div>
 
             <div>
-              <h3 className="text-[#C03D1A] font-semibold">TRACK RECORD</h3>
+              <h3 className="text-primaryLight font-semibold">TRACK RECORD</h3>
             </div>
           </div>
 
           {/* COLUNA 3 - ÁREAS DE ATUAÇÃO */}
           <div>
-            <h3 className="text-[#C03D1A] font-semibold mb-4">
+            <h3 className="text-primaryLight font-semibold mb-4">
               ÁREAS DE ATUAÇÃO
             </h3>
             <ul className="space-y-2 text-sm text-gray-300">
@@ -76,12 +80,12 @@ export default function Footer() {
           <div className="flex flex-col justify-between text-sm">
             <div className="space-y-24">
               <div className="flex items-center gap-3">
-                <Phone size={18} className="text-[#C03D1A]" />
+                <Phone size={18} className="text-primaryLight" />
                 <span>+55 (11) 5502-1200</span>
               </div>
 
               <div className="flex items-start gap-3">
-                <MapPin size={18} className="mt-1 text-[#C03D1A]" />
+                <MapPin size={18} className="mt-1 text-primaryLight" />
                 <p className="text-gray-300">
                   Rua Fidêncio Ramos, 308
                   <br />
@@ -94,11 +98,11 @@ export default function Footer() {
               <div className="flex gap-4 pt-2">
                 <Instagram
                   size={18}
-                  className="cursor-pointer hover:text-[#C03D1A] transition"
+                  className="cursor-pointer hover:text-primaryLight transition"
                 />
                 <Linkedin
                   size={18}
-                  className="cursor-pointer hover:text-[#C03D1A] transition"
+                  className="cursor-pointer hover:text-primaryLight transition"
                 />
               </div>
             </div>

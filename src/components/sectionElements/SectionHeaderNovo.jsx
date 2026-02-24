@@ -45,8 +45,8 @@ function SectionHeaderNovo({
       break;
 
     case "defaultDark":
-      textDestaque = "text-primaryDark";
-      text = "text-corTitulosPreto";
+      textDestaque = "text-primaryLight";
+      text = "text-primaryLight";
       textOpacity = "text-corOutrosTextosPreto";
       cardBg = "bg-white";
       borderCard = "border-border";

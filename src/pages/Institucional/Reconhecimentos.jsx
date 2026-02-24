@@ -10,8 +10,9 @@ import image5 from "../../assets/imgs/socialProof/img5.webp";
 import image6 from "../../assets/imgs/socialProof/img6.webp";
 import image7 from "../../assets/imgs/socialProof/img7.webp";
 import { Carousel } from "primereact/carousel";
+import "primereact/resources/themes/lara-light-blue/theme.css"; // ou outro tema
 
-function Reconhecimentos() {
+function Reconhecimentos({ colorMode }) {
   const logos = [
     { src: image1, alt: "Logo 1" },
     { src: image2, alt: "Logo 2" },
@@ -46,6 +47,7 @@ function Reconhecimentos() {
       <SectionWrapper>
         <div className="flex flex-col tablet2:flex-row items-center gap-6">
           <SectionHeaderNovo
+            colorMode={colorMode}
             title="Reconhecimentos"
             subtitle="O Miguel Neto Advogados é destaque nas principais publicações do mercado jurídico."
             type="article"
@@ -55,9 +57,10 @@ function Reconhecimentos() {
             <Carousel
               value={logos}
               numVisible={3}
-              numScroll={3}
+              numScroll={1}
               responsiveOptions={responsiveOptions}
               circular
+              showIndicators
               autoplayInterval={false}
               itemTemplate={itemTemplate}
             />

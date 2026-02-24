@@ -50,21 +50,21 @@ function Navbar() {
   };
 
   const linkClass = (id) =>
-    `relative hover:text-[#C03D1A] transition duration-500 ${
+    `relative hover:text-primaryLight transition duration-500 ${
       activeSection === id ? "" : ""
     }`;
 
   const underline = (id) =>
     activeSection === id && (
-      <span className="absolute left-0 -bottom-2 w-full h-[2px] bg-[#C03D1A]" />
+      <span className="absolute left-0 -bottom-2 w-full h-[2px] bg-primaryLight" />
     );
 
   return (
-    <div className="bg-[#07202D] fixed w-full z-50 border-b border-[#C03D1A]">
+    <div className="bg-primaryDark fixed w-full z-50 border-b-2 border-[#C03D1A]">
       <div className="max-w-7xl mx-auto px-0">
         <div className="flex items-center justify-between py-0">
           {/* LOGO */}
-          <div className="w-[45%] tablet2:w-[20%]">
+          <div className="w-[45%] tablet2:w-[20%] desktop1ex:w-[20%]">
             <img
               src="https://miguelneto.com.br/wp-content/uploads/2025/04/MiguelNeto-LogoNegativo-Color-FundoTransparente.png"
               alt="Miguel Neto Advogados"
@@ -79,7 +79,7 @@ function Navbar() {
               {underline("home")}
             </a>
 
-            <span className="text-[#C03D1A]">•</span>
+            <span className="text-primaryLight">•</span>
 
             {/* NOSSO ESCRITÓRIO */}
             <div
@@ -94,7 +94,7 @@ function Navbar() {
               </a>
 
               <div
-                className={`absolute top-full left-0 mt-4 bg-[#07202D] text-white shadow-xl w-56 py-3 transition-all duration-300
+                className={`absolute top-full left-0 mt-4 bg-primaryDark uppercase text-white shadow-xl w-56 py-3 transition-all duration-300
                 ${
                   openDropdown === "escritorio"
                     ? "opacity-100 visible"
@@ -103,26 +103,26 @@ function Navbar() {
               >
                 <a
                   href="#office"
-                  className="block px-4 py-2 hover:text-[#C03D1A] duration-500 transition-all"
+                  className="block px-4 py-2 hover:text-primaryLight duration-500 transition-all"
                 >
-                  História
+                  Sobre Nós
                 </a>
                 <a
                   href="#office"
-                  className="block px-4 py-2 hover:text-[#C03D1A] duration-500 transition-all"
+                  className="block px-4 py-2 hover:text-primaryLight duration-500 transition-all"
                 >
-                  Missão e Valores
+                  Track Record
                 </a>
                 <a
                   href="#office"
-                  className="block px-4 py-2 hover:text-[#C03D1A] duration-500 transition-all"
+                  className="block px-4 py-2 hover:text-primaryLight duration-500 transition-all"
                 >
-                  Estrutura
+                  Carreira
                 </a>
               </div>
             </div>
 
-            <span className="text-[#C03D1A]">•</span>
+            <span className="text-primaryLight">•</span>
 
             {/* ÁREAS DE ATUAÇÃO */}
             <div
@@ -137,7 +137,7 @@ function Navbar() {
               </a>
 
               <div
-                className={`absolute top-full left-0 mt-4 bg-[#07202D] text-white shadow-xl w-64 py-3 transition-all duration-300
+                className={`absolute top-full left-0 mt-4 bg-primaryDark uppercase text-white shadow-xl w-64 py-3 transition-all duration-300
                 ${
                   openDropdown === "areas"
                     ? "opacity-100 visible"
@@ -146,44 +146,44 @@ function Navbar() {
               >
                 <a
                   href="#service"
-                  className="block px-4 py-2 hover:text-[#C03D1A] duration-500 transition-all"
+                  className="block px-4 py-2 hover:text-primaryLight duration-500 transition-all"
                 >
                   Direito Empresarial
                 </a>
                 <a
                   href="#service"
-                  className="block px-4 py-2 hover:text-[#C03D1A] duration-500 transition-all"
+                  className="block px-4 py-2 hover:text-primaryLight duration-500 transition-all"
                 >
                   Direito Tributário
                 </a>
                 <a
                   href="#service"
-                  className="block px-4 py-2 hover:text-[#C03D1A] duration-500 transition-all"
+                  className="block px-4 py-2 hover:text-primaryLight duration-500 transition-all"
                 >
                   Contencioso Estratégico
                 </a>
               </div>
             </div>
 
-            <span className="text-[#C03D1A]">•</span>
+            <span className="text-primaryLight">•</span>
 
             <a href="#team" className={linkClass("team")}>
               ADVOGADOS
               {underline("team")}
             </a>
 
-            <span className="text-[#C03D1A]">•</span>
+            <span className="text-primaryLight">•</span>
 
             <a href="#reconhecimento" className={linkClass("reconhecimento")}>
               RECONHECIMENTOS
               {underline("reconhecimento")}
             </a>
 
-            <span className="text-[#C03D1A]">•</span>
+            <span className="text-primaryLight">•</span>
 
             <a
               href="#contato"
-              className="hover:text-[#C03D1A] transition duration-500"
+              className="hover:text-primaryLight transition duration-500"
             >
               CONTATO
             </a>
@@ -195,7 +195,7 @@ function Navbar() {
             <div className="desktop1ex:hidden flex items-center gap-4">
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="text-[#C03D1A]"
+                className="text-primaryLight"
               >
                 {mobileOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
@@ -210,7 +210,7 @@ function Navbar() {
 
       {/* MOBILE MENU */}
       {mobileOpen && (
-        <div className="xl:hidden bg-[#07202D] text-white px-6 pb-6 space-y-4">
+        <div className="xl:hidden bg-primaryDark text-white px-6 pb-6 space-y-4">
           <a href="#home" className="block">
             HOME
           </a>

@@ -2,14 +2,14 @@ import { Phone, Mail } from "lucide-react";
 
 export default function TeamMember({ img, alt, name, phone, email }) {
   return (
-    <div className="flex flex-col items-center text-center font-secondFont mx-auto">
+    <div className="flex flex-col items-center text-center font-secondFont mx-auto p-4">
       {/* Foto */}
       <img
         src={img}
         alt={alt}
         width={260}
         height={260}
-        className="w-[260px] h-[260px] rounded-full object-cover"
+        className="w-[260px] h-auto tablet2:w-[300px] desktop1:w-[170px] desktop2:w-[200px] rounded-full object-cover"
       />
 
       {/* Nome */}

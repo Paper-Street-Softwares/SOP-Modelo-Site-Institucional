@@ -7,10 +7,10 @@ import { ScrollMouse } from "../../components/animation/MouseScroll";
 
 function Hero() {
   return (
-    <SectionArea className={`bg-red-500 h-[480px]`}>
+    <SectionArea className={``} paddingTopAndBottom={false}>
       <section
         id="home"
-        className="relative h-full min-h-[480px] flex flex-col items-center justify-center overflow-hidden w-full"
+        className="relative min-h-[150vw] tablet1:min-h-[135vw] desktop1:min-h-[68vw] desktop2:min-h-[60vw] flex flex-col items-center justify-center overflow-hidden w-full"
       >
         {/* Background Image - Bridge/Cityscape */}
         {/* unsplash: "suspension bridge at night city lights" */}
@@ -21,7 +21,7 @@ function Hero() {
             alt="Cityscape"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-[#0f2a3a]/80 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-[#0f2a3a]/40 mix-blend-multiply" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0f2a3a] via-transparent to-transparent" />
         </div>
 
@@ -31,7 +31,7 @@ function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className=" text-[29px] font-mainFont font-bold text-white mb-8 leading-tight drop-shadow-lg">
+            <h1 className=" text-[29px] desktop2:text-[50px] font-mainFont font-light text-[#ECDDC6] leading-tight drop-shadow-lg">
               ADVOCACIA
               <br />
               FOCADA NO

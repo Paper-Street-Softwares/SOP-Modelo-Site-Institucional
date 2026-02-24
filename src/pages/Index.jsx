@@ -58,10 +58,10 @@ export default function Index() {
       <ColorModeProvider>
         <Navbar />
         <Hero />
-        <News />
-        <About />
-        <Reconhecimentos />
-        <TeamSection />
+        <News colorMode={colorMode} />
+        <About colorMode={colorMode} />
+        <Reconhecimentos colorMode={colorMode} />
+        <TeamSection colorMode={colorMode} />
         <Footer />
 
         {/* Render imediato */}
