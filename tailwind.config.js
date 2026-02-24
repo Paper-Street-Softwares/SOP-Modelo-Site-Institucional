@@ -124,6 +124,7 @@ export default {
         tablet1: "640px",
         tablet2: "768px",
         desktop1: "1024px",
+        desktop1ex: "1025px",
         desktop2: "1280px",
         desktop3: "1440px",
       },

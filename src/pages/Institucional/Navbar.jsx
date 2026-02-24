@@ -5,6 +5,7 @@ function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [activeSection, setActiveSection] = useState("home");
+  const [closeTimer, setCloseTimer] = useState(null);
 
   const sections = ["home", "office", "service", "team", "reconhecimento"];
 
@@ -36,6 +37,18 @@ function Navbar() {
     return () => observers.forEach((observer) => observer.disconnect());
   }, []);
 
+  const handleOpen = (menu) => {
+    if (closeTimer) clearTimeout(closeTimer);
+    setOpenDropdown(menu);
+  };
+
+  const handleClose = () => {
+    const timer = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 300);
+    setCloseTimer(timer);
+  };
+
   const linkClass = (id) =>
     `relative hover:text-[#C03D1A] transition duration-500 ${
       activeSection === id ? "" : ""
@@ -48,10 +61,10 @@ function Navbar() {
 
   return (
     <div className="bg-[#07202D] fixed w-full z-50 border-b border-[#C03D1A]">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center justify-between py-4">
+      <div className="max-w-7xl mx-auto px-0">
+        <div className="flex items-center justify-between py-0">
           {/* LOGO */}
-          <div className="w-[200px]">
+          <div className="w-[45%] tablet2:w-[20%]">
             <img
               src="https://miguelneto.com.br/wp-content/uploads/2025/04/MiguelNeto-LogoNegativo-Color-FundoTransparente.png"
               alt="Miguel Neto Advogados"
@@ -60,8 +73,7 @@ function Navbar() {
           </div>
 
           {/* DESKTOP MENU */}
-          <div className="hidden lg:flex items-center gap-5 text-white text-sm tracking-wide font-mainFont font-light">
-            {/* HOME */}
+          <div className="hidden desktop1ex:flex items-center gap-5 text-white text-sm tracking-wide font-mainFont font-light">
             <a href="#home" className={linkClass("home")}>
               HOME
               {underline("home")}
@@ -72,8 +84,8 @@ function Navbar() {
             {/* NOSSO ESCRITÓRIO */}
             <div
               className="relative"
-              onMouseEnter={() => setOpenDropdown("escritorio")}
-              onMouseLeave={() => setOpenDropdown(null)}
+              onMouseEnter={() => handleOpen("escritorio")}
+              onMouseLeave={handleClose}
             >
               <a href="#office" className={linkClass("office")}>
                 NOSSO ESCRITÓRIO{" "}
@@ -81,28 +93,33 @@ function Navbar() {
                 {underline("office")}
               </a>
 
-              {openDropdown === "escritorio" && (
-                <div className="absolute top-full left-0 mt-4 bg-[#07202D] text-white shadow-xl w-56 py-3">
-                  <a
-                    href="#office"
-                    className="block px-4 py-2 hover:text-[#C03D1A]"
-                  >
-                    História
-                  </a>
-                  <a
-                    href="#office"
-                    className="block px-4 py-2 hover:text-[#C03D1A]"
-                  >
-                    Missão e Valores
-                  </a>
-                  <a
-                    href="#office"
-                    className="block px-4 py-2 hover:text-[#C03D1A]"
-                  >
-                    Estrutura
-                  </a>
-                </div>
-              )}
+              <div
+                className={`absolute top-full left-0 mt-4 bg-[#07202D] text-white shadow-xl w-56 py-3 transition-all duration-300
+                ${
+                  openDropdown === "escritorio"
+                    ? "opacity-100 visible"
+                    : "opacity-0 invisible"
+                }`}
+              >
+                <a
+                  href="#office"
+                  className="block px-4 py-2 hover:text-[#C03D1A] duration-500 transition-all"
+                >
+                  História
+                </a>
+                <a
+                  href="#office"
+                  className="block px-4 py-2 hover:text-[#C03D1A] duration-500 transition-all"
+                >
+                  Missão e Valores
+                </a>
+                <a
+                  href="#office"
+                  className="block px-4 py-2 hover:text-[#C03D1A] duration-500 transition-all"
+                >
+                  Estrutura
+                </a>
+              </div>
             </div>
 
             <span className="text-[#C03D1A]">•</span>
@@ -110,8 +127,8 @@ function Navbar() {
             {/* ÁREAS DE ATUAÇÃO */}
             <div
               className="relative"
-              onMouseEnter={() => setOpenDropdown("areas")}
-              onMouseLeave={() => setOpenDropdown(null)}
+              onMouseEnter={() => handleOpen("areas")}
+              onMouseLeave={handleClose}
             >
               <a href="#service" className={linkClass("service")}>
                 ÁREAS DE ATUAÇÃO{" "}
@@ -119,33 +136,37 @@ function Navbar() {
                 {underline("service")}
               </a>
 
-              {openDropdown === "areas" && (
-                <div className="absolute top-full left-0 mt-4 bg-[#07202D] text-white shadow-xl w-64 py-3">
-                  <a
-                    href="#service"
-                    className="block px-4 py-2 hover:text-[#C03D1A]"
-                  >
-                    Direito Empresarial
-                  </a>
-                  <a
-                    href="#service"
-                    className="block px-4 py-2 hover:text-[#C03D1A]"
-                  >
-                    Direito Tributário
-                  </a>
-                  <a
-                    href="#service"
-                    className="block px-4 py-2 hover:text-[#C03D1A]"
-                  >
-                    Contencioso Estratégico
-                  </a>
-                </div>
-              )}
+              <div
+                className={`absolute top-full left-0 mt-4 bg-[#07202D] text-white shadow-xl w-64 py-3 transition-all duration-300
+                ${
+                  openDropdown === "areas"
+                    ? "opacity-100 visible"
+                    : "opacity-0 invisible"
+                }`}
+              >
+                <a
+                  href="#service"
+                  className="block px-4 py-2 hover:text-[#C03D1A] duration-500 transition-all"
+                >
+                  Direito Empresarial
+                </a>
+                <a
+                  href="#service"
+                  className="block px-4 py-2 hover:text-[#C03D1A] duration-500 transition-all"
+                >
+                  Direito Tributário
+                </a>
+                <a
+                  href="#service"
+                  className="block px-4 py-2 hover:text-[#C03D1A] duration-500 transition-all"
+                >
+                  Contencioso Estratégico
+                </a>
+              </div>
             </div>
 
             <span className="text-[#C03D1A]">•</span>
 
-            {/* ADVOGADOS */}
             <a href="#team" className={linkClass("team")}>
               ADVOGADOS
               {underline("team")}
@@ -153,7 +174,6 @@ function Navbar() {
 
             <span className="text-[#C03D1A]">•</span>
 
-            {/* RECONHECIMENTOS */}
             <a href="#reconhecimento" className={linkClass("reconhecimento")}>
               RECONHECIMENTOS
               {underline("reconhecimento")}
@@ -161,36 +181,36 @@ function Navbar() {
 
             <span className="text-[#C03D1A]">•</span>
 
-            {/* CONTATO */}
             <a
               href="#contato"
               className="hover:text-[#C03D1A] transition duration-500"
             >
               CONTATO
             </a>
+          </div>
 
-            {/* LANG */}
-            <div className="flex gap-2 ml-4">
+          <section className="flex gap-4">
+            {" "}
+            {/* MOBILE BUTTON */}
+            <div className="desktop1ex:hidden flex items-center gap-4">
+              <button
+                onClick={() => setMobileOpen(!mobileOpen)}
+                className="text-[#C03D1A]"
+              >
+                {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+              </button>
+            </div>
+            <div className="flex flex-col gap-0">
               <button className="text-white">PT</button>
               <button className="text-white/40 hover:text-white">EN</button>
             </div>
-          </div>
-
-          {/* MOBILE BUTTON */}
-          <div className="lg:hidden flex items-center gap-4">
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="text-[#C03D1A]"
-            >
-              {mobileOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
-          </div>
+          </section>
         </div>
       </div>
 
       {/* MOBILE MENU */}
       {mobileOpen && (
-        <div className="lg:hidden bg-[#07202D] text-white px-6 pb-6 space-y-4">
+        <div className="xl:hidden bg-[#07202D] text-white px-6 pb-6 space-y-4">
           <a href="#home" className="block">
             HOME
           </a>
