@@ -56,13 +56,13 @@ export default function Index() {
   return (
     <>
       <ColorModeProvider>
-        {/* <Navbar /> */}
-        {/* <Hero /> */}
-        {/* <News /> */}
-        {/* <About /> */}
-        {/* <Reconhecimentos /> */}
-        {/* <TeamSection /> */}
-        {/* <Footer /> */}
+        <Navbar />
+        <Hero />
+        <News />
+        <About />
+        <Reconhecimentos />
+        <TeamSection />
+        <Footer />
 
         {/* Render imediato */}
         {/* <NavbarNovaTemplate colorMode={colorMode} /> */}
