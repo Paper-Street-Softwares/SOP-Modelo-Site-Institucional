@@ -3,15 +3,20 @@ import SectionArea from "../../components/sectionElements/SectionArea";
 import SectionHeaderNovo from "../../components/sectionElements/SectionHeaderNovo";
 import TeamSectionNew from "../../components/sections/TeamSection";
 import TeamMember from "../../components/cards/TeamMember";
+import SectionWrapper from "../../components/sectionElements/SectionWrapper";
 
 function TeamSection({ colorMode }) {
   return (
-    <SectionArea className={`bg-[#F0E3D1]`} paddingTopAndBottom={false}>
-      <section className="py-24 ">
-        <div className=" mx-auto px-4 md:px-6">
-          <SectionHeaderNovo title="Sócios" colorMode={colorMode} />
+    <SectionArea className={`bg-[#F0E3D1]`}>
+      <SectionWrapper className={``}>
+        <div className="mx-auto px-4 md:px-0">
+          <SectionHeaderNovo
+            title="Sócios"
+            colorMode={colorMode}
+            className={`mb-6`}
+          />
 
-          <div className="flex flex-wrap gap-6 tablet2:gap-12 desktop1:gap-[2%]">
+          <div className="flex flex-wrap gap-6 tablet2:gap-12 desktop1:gap-[1%]">
             <TeamMember
               img="https://miguelneto.com.br/wp-content/uploads/2016/04/Miguel_neto_600x600-2-300x300.png"
               name="J. A Miguel Neto"
@@ -74,7 +79,7 @@ function TeamSection({ colorMode }) {
             />
           </div>
         </div>
-      </section>
+      </SectionWrapper>
     </SectionArea>
   );
 }
