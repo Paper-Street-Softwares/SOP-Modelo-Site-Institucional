@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [activeSection, setActiveSection] = useState("home");
   const [closeTimer, setCloseTimer] = useState(null);
@@ -69,14 +70,13 @@ function Navbar() {
     setCloseTimer(timer);
   };
 
-  // ======================
-  // CLASSES
-  // ======================
-  const linkClass = (id) =>
-    `relative hover:text-primaryLight transition duration-500`;
+  const linkClass = () =>
+    "relative hover:text-primaryLight transition duration-500";
 
   const underline = (id) =>
-    (activeSection === id || currentRoute === id) && (
+    (location.pathname === "/"
+      ? activeSection === id
+      : currentRoute === id) && (
       <span className="absolute left-0 -bottom-2 w-full h-[2px] bg-primaryLight" />
     );
 
@@ -97,7 +97,7 @@ function Navbar() {
 
           {/* DESKTOP MENU */}
           <div className="hidden desktop1ex:flex items-center gap-5 text-white text-sm tracking-wide font-mainFont font-light">
-            <Link to="/" className={linkClass("home")}>
+            <Link to="/" className={linkClass()}>
               HOME
               {underline("home")}
             </Link>
@@ -110,35 +110,34 @@ function Navbar() {
               onMouseEnter={() => handleOpen("escritorio")}
               onMouseLeave={handleClose}
             >
-              <Link to="/about" className={linkClass("office")}>
+              <Link to="" className={linkClass()}>
                 NOSSO ESCRITÓRIO{" "}
                 <ChevronDown size={16} className="inline ml-1" />
                 {underline("office")}
               </Link>
 
               <div
-                className={`absolute top-full left-0 mt-4 bg-primaryDark uppercase text-white shadow-xl w-56 py-3 transition-all duration-300
-                ${
+                className={`absolute top-full left-0 mt-4 bg-primaryDark uppercase text-white shadow-xl w-56 py-3 transition-all duration-300 ${
                   openDropdown === "escritorio"
                     ? "opacity-100 visible"
                     : "opacity-0 invisible"
                 }`}
               >
                 <Link
-                  to="/about"
-                  className="block px-4 py-2 hover:text-primaryLight duration-500 transition-all"
+                  to=""
+                  className="block px-4 py-2 hover:text-primaryLight transition"
                 >
                   Sobre Nós
                 </Link>
                 <a
                   href="#office"
-                  className="block px-4 py-2 hover:text-primaryLight duration-500 transition-all"
+                  className="block px-4 py-2 hover:text-primaryLight transition"
                 >
                   Track Record
                 </a>
                 <a
                   href="#office"
-                  className="block px-4 py-2 hover:text-primaryLight duration-500 transition-all"
+                  className="block px-4 py-2 hover:text-primaryLight transition"
                 >
                   Carreira
                 </a>
@@ -153,15 +152,18 @@ function Navbar() {
               onMouseEnter={() => handleOpen("areas")}
               onMouseLeave={handleClose}
             >
-              <Link to="/features" className={linkClass("service")}>
-                ÁREAS DE ATUAÇÃO{" "}
+              <button
+                type="button"
+                className={linkClass()}
+                onClick={() => navigate("/features")}
+              >
+                ÁREAS DE ATUAÇÃO
                 <ChevronDown size={16} className="inline ml-1" />
                 {underline("service")}
-              </Link>
+              </button>
 
               <div
-                className={`absolute top-full left-0 mt-4 bg-primaryDark uppercase text-white shadow-xl w-64 py-3 transition-all duration-300
-                ${
+                className={`absolute top-full left-0 mt-4 bg-primaryDark shadow-xl w-64 py-3 transition-all duration-300 ${
                   openDropdown === "areas"
                     ? "opacity-100 visible"
                     : "opacity-0 invisible"
@@ -169,25 +171,25 @@ function Navbar() {
               >
                 <Link
                   to="/features/ambiental"
-                  className="block px-4 py-2 hover:text-primaryLight duration-500 transition-all"
+                  className="block px-4 py-2 hover:text-primaryLight"
                 >
                   Ambiental, ESG e Energia
                 </Link>
                 <Link
                   to="/features/compliance"
-                  className="block px-4 py-2 hover:text-primaryLight duration-500 transition-all"
+                  className="block px-4 py-2 hover:text-primaryLight"
                 >
                   Compliance e Investigações Corporativas
                 </Link>
                 <Link
                   to="/features/concorrencial"
-                  className="block px-4 py-2 hover:text-primaryLight duration-500 transition-all"
+                  className="block px-4 py-2 hover:text-primaryLight"
                 >
                   Concorrencial
                 </Link>
                 <Link
                   to="/features/contencioso"
-                  className="block px-4 py-2 hover:text-primaryLight duration-500 transition-all"
+                  className="block px-4 py-2 hover:text-primaryLight"
                 >
                   Contencioso
                 </Link>
@@ -196,21 +198,21 @@ function Navbar() {
 
             <span className="text-primaryLight">•</span>
 
-            <a href="#team" className={linkClass("team")}>
+            <a href="#team" className={linkClass()}>
               ADVOGADOS
               {underline("team")}
             </a>
 
             <span className="text-primaryLight">•</span>
 
-            <a href="#reconhecimento" className={linkClass("reconhecimento")}>
+            <a href="#reconhecimento" className={linkClass()}>
               RECONHECIMENTOS
               {underline("reconhecimento")}
             </a>
 
             <span className="text-primaryLight">•</span>
 
-            <Link to="/contato" className={linkClass("contato")}>
+            <Link to="/contato" className={linkClass()}>
               CONTATO
               {underline("contato")}
             </Link>
@@ -238,22 +240,88 @@ function Navbar() {
       {/* MOBILE MENU */}
       {mobileOpen && (
         <div className="xl:hidden bg-primaryDark text-white px-6 pb-6 space-y-4">
-          <Link to="/" className="block">
+          <Link to="/" onClick={() => setMobileOpen(false)} className="block">
             HOME
           </Link>
-          <Link to="/about" className="block">
-            NOSSO ESCRITÓRIO
-          </Link>
-          <Link to="/features" className="block">
-            ÁREAS DE ATUAÇÃO
-          </Link>
-          <a href="#team" className="block">
-            ADVOGADOS
-          </a>
-          <a href="#reconhecimento" className="block">
-            RECONHECIMENTOS
-          </a>
-          <Link to="/contato" className="block">
+
+          <div>
+            <button
+              onClick={() => setMobileAreasOpen(!mobileAreasOpen)}
+              className="w-full flex items-center justify-between"
+            >
+              <span>NOSSO ESCRITÓRIO</span>
+              <ChevronDown
+                size={16}
+                className={`transition-transform ${
+                  mobileAreasOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+
+            {mobileAreasOpen && (
+              <div className="mt-2 ml-4 flex flex-col gap-2 text-sm">
+                <Link to="/about" onClick={() => setMobileOpen(false)}>
+                  Sobre Nós
+                </Link>
+                <a href="#office" onClick={() => setMobileOpen(false)}>
+                  Track Record
+                </a>
+                <a href="#office" onClick={() => setMobileOpen(false)}>
+                  Carreira
+                </a>
+              </div>
+            )}
+          </div>
+
+          <div>
+            <button
+              onClick={() => setMobileAreasOpen(!mobileAreasOpen)}
+              className="w-full flex items-center justify-between"
+            >
+              <span>ÁREAS DE ATUAÇÃO</span>
+              <ChevronDown
+                size={16}
+                className={`transition-transform ${
+                  mobileAreasOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+
+            {mobileAreasOpen && (
+              <div className="mt-2 ml-4 flex flex-col gap-2 text-sm">
+                <Link
+                  to="/features/ambiental"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Ambiental, ESG e Energia
+                </Link>
+                <Link
+                  to="/features/compliance"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Compliance e Investigações Corporativas
+                </Link>
+                <Link
+                  to="/features/concorrencial"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Concorrencial
+                </Link>
+                <Link
+                  to="/features/contencioso"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Contencioso
+                </Link>
+              </div>
+            )}
+          </div>
+
+          <Link
+            to="/contato"
+            onClick={() => setMobileOpen(false)}
+            className="block"
+          >
             CONTATO
           </Link>
 

@@ -66,7 +66,7 @@ function ConteudoAbout({ colorMode }) {
           <img
             src={imgAbout}
             alt="imagem representativa do Consultório"
-            className="w-full mx-auto tablet2:w-[595px] z-10"
+            className="w-full mx-auto tablet2:w-[50%] desktop1:w-[595px] z-10"
           />
 
           <div className="relative w-[90%] mx-auto flex tablet2:w-[555px]">
