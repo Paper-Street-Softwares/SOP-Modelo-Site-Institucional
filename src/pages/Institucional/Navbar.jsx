@@ -205,19 +205,19 @@ function Navbar() {
 
             <span className="text-primaryLight">•</span>
 
-            <a href="#team" className={linkClass()}>
+            {/* <a href="#team" className={linkClass()}>
               ADVOGADOS
               {underline("team")}
             </a>
 
-            <span className="text-primaryLight">•</span>
+            <span className="text-primaryLight">•</span> */}
 
-            <a href="#reconhecimento" className={linkClass()}>
+            {/* <a href="#reconhecimento" className={linkClass()}>
               RECONHECIMENTOS
               {underline("reconhecimento")}
             </a>
 
-            <span className="text-primaryLight">•</span>
+            <span className="text-primaryLight">•</span> */}
 
             <Link to="/contato" className={linkClass()}>
               CONTATO
