@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileOfficeOpen, setMobileOfficeOpen] = useState(false);
   const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [activeSection, setActiveSection] = useState("home");
@@ -110,11 +111,11 @@ function Navbar() {
               onMouseEnter={() => handleOpen("escritorio")}
               onMouseLeave={handleClose}
             >
-              <Link to="" className={linkClass()}>
+              <button type="button" className={linkClass()}>
                 NOSSO ESCRITÓRIO{" "}
                 <ChevronDown size={16} className="inline ml-1" />
                 {underline("office")}
-              </Link>
+              </button>
 
               <div
                 className={`absolute top-full left-0 mt-4 bg-primaryDark uppercase text-white shadow-xl w-56 py-3 transition-all duration-300 ${
@@ -124,17 +125,19 @@ function Navbar() {
                 }`}
               >
                 <Link
-                  to=""
+                  to="/about"
                   className="block px-4 py-2 hover:text-primaryLight transition"
                 >
                   Sobre Nós
                 </Link>
+
                 <a
                   href="#office"
                   className="block px-4 py-2 hover:text-primaryLight transition"
                 >
                   Track Record
                 </a>
+
                 <a
                   href="#office"
                   className="block px-4 py-2 hover:text-primaryLight transition"
@@ -148,7 +151,7 @@ function Navbar() {
 
             {/* ÁREAS DE ATUAÇÃO */}
             <div
-              className="relative"
+              className="relative uppercase"
               onMouseEnter={() => handleOpen("areas")}
               onMouseLeave={handleClose}
             >
@@ -246,20 +249,23 @@ function Navbar() {
 
           <div>
             <button
-              onClick={() => setMobileAreasOpen(!mobileAreasOpen)}
+              onClick={() => {
+                setMobileOfficeOpen(!mobileOfficeOpen);
+                setMobileAreasOpen(false); // fecha o outro
+              }}
               className="w-full flex items-center justify-between"
             >
               <span>NOSSO ESCRITÓRIO</span>
               <ChevronDown
                 size={16}
                 className={`transition-transform ${
-                  mobileAreasOpen ? "rotate-180" : ""
+                  mobileOfficeOpen ? "rotate-180" : ""
                 }`}
               />
             </button>
 
-            {mobileAreasOpen && (
-              <div className="mt-2 ml-4 flex flex-col gap-2 text-sm">
+            {mobileOfficeOpen && (
+              <div className="mt-2 ml-4 flex flex-col gap-2 text-sm uppercase">
                 <Link to="/about" onClick={() => setMobileOpen(false)}>
                   Sobre Nós
                 </Link>
@@ -275,7 +281,10 @@ function Navbar() {
 
           <div>
             <button
-              onClick={() => setMobileAreasOpen(!mobileAreasOpen)}
+              onClick={() => {
+                setMobileAreasOpen(!mobileAreasOpen);
+                setMobileOfficeOpen(false);
+              }}
               className="w-full flex items-center justify-between"
             >
               <span>ÁREAS DE ATUAÇÃO</span>
@@ -288,7 +297,7 @@ function Navbar() {
             </button>
 
             {mobileAreasOpen && (
-              <div className="mt-2 ml-4 flex flex-col gap-2 text-sm">
+              <div className="mt-2 ml-4 flex flex-col gap-2 text-sm uppercase">
                 <Link
                   to="/features/ambiental"
                   onClick={() => setMobileOpen(false)}
