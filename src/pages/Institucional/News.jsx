@@ -19,7 +19,7 @@ function News({ colorMode }) {
               colorMode={colorMode}
             />
 
-            <div className="flex flex-wrap gap-12 tablet2:gap-7 desktop2:gap-6">
+            <div className="flex flex-wrap gap-10 tablet2:gap-7 desktop2:gap-6">
               <NewsCardsInstitucional
                 category="Artigo"
                 title="Novas regras sobre trabalho aos domingos e feriados começam a valer em março. Entenda"

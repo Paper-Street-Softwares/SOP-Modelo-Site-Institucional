@@ -67,13 +67,13 @@ function SectionHeaderNovo({
   }
 
   if (type === "article") {
-    usage = "text-start mb-8";
+    usage = `text-start mb-8 ${className}`;
   } else {
-    usage = "text-center mb-16";
+    usage = `text-center mb-16 ${className}`;
   }
 
   return (
-    <MotionDivDownToUp>
+    <MotionDivDownToUp className={`${className}`}>
       <div className={`w-full mx-auto ${className} ${usage}`}>
         {miniTitle && (
           <span
@@ -85,7 +85,7 @@ function SectionHeaderNovo({
 
         {title && (
           <h2
-            className={`text-3xl md:text-4xl font-mainFont font-medium mb-4 ${text}`}
+            className={`text-3xl md:text-3xl font-mainFont font-medium text-primaryLight ${text}`}
           >
             {title} <span className={`italic ${textDestaque}`}>{destaque}</span>{" "}
             {secondPart}
@@ -93,7 +93,9 @@ function SectionHeaderNovo({
         )}
 
         {subtitle && (
-          <p className={`font-secondFont font-light ${textOpacity}`}>
+          <p
+            className={`font-secondFont font-light mt-4 opacity-60 ${textOpacity}`}
+          >
             {subtitle}
           </p>
         )}

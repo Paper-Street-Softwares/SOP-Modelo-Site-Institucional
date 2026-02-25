@@ -10,7 +10,7 @@ function Hero() {
     <SectionArea className={``} paddingTopAndBottom={false}>
       <section
         id="home"
-        className="relative min-h-[150vw] tablet1:min-h-[135vw] desktop1:min-h-[68vw] desktop2:min-h-[60vw] flex flex-col items-center justify-center overflow-hidden w-full"
+        className="relative h-[65vh] phone2:h-[80vh] phone3:h-[90vh] tablet1:h-[47vh] flex flex-col items-center justify-center overflow-hidden w-full"
       >
         {/* Background Image - Bridge/Cityscape */}
         {/* unsplash: "suspension bridge at night city lights" */}

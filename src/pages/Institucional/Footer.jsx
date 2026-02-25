@@ -5,8 +5,8 @@ import SectionArea from "../../components/sectionElements/SectionArea";
 export default function Footer() {
   return (
     <SectionArea paddingTopAndBottom={false}>
-      <footer className="bg-primaryDark text-white py-16 border-t w-full border-[#C03D1A]">
-        <div className="flex flex-col tablet2:flex-row items-center justify-center gap-12">
+      <footer className="bg-primaryDark text-white border-t w-full border-[#C03D1A]">
+        <div className="flex flex-col px-[20px] tablet2:flex-row tablet2:pt-[50px] items-start justify-center gap-12">
           {/* COLUNA 1 - LOGO */}
           <div className="flex">
             <img
@@ -53,7 +53,7 @@ export default function Footer() {
           </div>
 
           {/* COLUNA 3 - ÁREAS DE ATUAÇÃO */}
-          <div>
+          <div className="">
             <h3 className="text-primaryLight font-semibold mb-4">
               ÁREAS DE ATUAÇÃO
             </h3>

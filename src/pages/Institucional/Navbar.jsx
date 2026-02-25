@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Menu, ChevronDown, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -7,10 +8,13 @@ function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
   const [closeTimer, setCloseTimer] = useState(null);
 
+  const location = useLocation();
+
   const sections = ["home", "office", "service", "team", "reconhecimento"];
 
-  // SCROLL SPY
   useEffect(() => {
+    if (location.pathname !== "/") return;
+
     const observers = [];
 
     sections.forEach((id) => {
@@ -35,7 +39,23 @@ function Navbar() {
     });
 
     return () => observers.forEach((observer) => observer.disconnect());
-  }, []);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (location.pathname !== "/") {
+      setActiveSection(null);
+    }
+  }, [location.pathname]);
+
+  const routeActive = () => {
+    if (location.pathname === "/") return "home";
+    if (location.pathname === "/contato") return "contato";
+    if (location.pathname === "/about") return "office";
+    if (location.pathname.startsWith("/features")) return "service";
+    return null;
+  };
+
+  const currentRoute = routeActive();
 
   const handleOpen = (menu) => {
     if (closeTimer) clearTimeout(closeTimer);
@@ -49,13 +69,14 @@ function Navbar() {
     setCloseTimer(timer);
   };
 
+  // ======================
+  // CLASSES
+  // ======================
   const linkClass = (id) =>
-    `relative hover:text-primaryLight transition duration-500 ${
-      activeSection === id ? "" : ""
-    }`;
+    `relative hover:text-primaryLight transition duration-500`;
 
   const underline = (id) =>
-    activeSection === id && (
+    (activeSection === id || currentRoute === id) && (
       <span className="absolute left-0 -bottom-2 w-full h-[2px] bg-primaryLight" />
     );
 
@@ -65,19 +86,21 @@ function Navbar() {
         <div className="flex items-center justify-between py-0">
           {/* LOGO */}
           <div className="w-[45%] tablet2:w-[20%] desktop1ex:w-[20%]">
-            <img
-              src="https://miguelneto.com.br/wp-content/uploads/2025/04/MiguelNeto-LogoNegativo-Color-FundoTransparente.png"
-              alt="Miguel Neto Advogados"
-              className="w-full"
-            />
+            <Link to="/">
+              <img
+                src="https://miguelneto.com.br/wp-content/uploads/2025/04/MiguelNeto-LogoNegativo-Color-FundoTransparente.png"
+                alt="Miguel Neto Advogados"
+                className="w-full"
+              />
+            </Link>
           </div>
 
           {/* DESKTOP MENU */}
           <div className="hidden desktop1ex:flex items-center gap-5 text-white text-sm tracking-wide font-mainFont font-light">
-            <a href="#home" className={linkClass("home")}>
+            <Link to="/" className={linkClass("home")}>
               HOME
               {underline("home")}
-            </a>
+            </Link>
 
             <span className="text-primaryLight">•</span>
 
@@ -87,11 +110,11 @@ function Navbar() {
               onMouseEnter={() => handleOpen("escritorio")}
               onMouseLeave={handleClose}
             >
-              <a href="#office" className={linkClass("office")}>
+              <Link to="/about" className={linkClass("office")}>
                 NOSSO ESCRITÓRIO{" "}
                 <ChevronDown size={16} className="inline ml-1" />
                 {underline("office")}
-              </a>
+              </Link>
 
               <div
                 className={`absolute top-full left-0 mt-4 bg-primaryDark uppercase text-white shadow-xl w-56 py-3 transition-all duration-300
@@ -101,12 +124,12 @@ function Navbar() {
                     : "opacity-0 invisible"
                 }`}
               >
-                <a
-                  href="#office"
+                <Link
+                  to="/about"
                   className="block px-4 py-2 hover:text-primaryLight duration-500 transition-all"
                 >
                   Sobre Nós
-                </a>
+                </Link>
                 <a
                   href="#office"
                   className="block px-4 py-2 hover:text-primaryLight duration-500 transition-all"
@@ -130,11 +153,11 @@ function Navbar() {
               onMouseEnter={() => handleOpen("areas")}
               onMouseLeave={handleClose}
             >
-              <a href="#service" className={linkClass("service")}>
+              <Link to="/features" className={linkClass("service")}>
                 ÁREAS DE ATUAÇÃO{" "}
                 <ChevronDown size={16} className="inline ml-1" />
                 {underline("service")}
-              </a>
+              </Link>
 
               <div
                 className={`absolute top-full left-0 mt-4 bg-primaryDark uppercase text-white shadow-xl w-64 py-3 transition-all duration-300
@@ -144,24 +167,30 @@ function Navbar() {
                     : "opacity-0 invisible"
                 }`}
               >
-                <a
-                  href="#service"
+                <Link
+                  to="/features/ambiental"
                   className="block px-4 py-2 hover:text-primaryLight duration-500 transition-all"
                 >
-                  Direito Empresarial
-                </a>
-                <a
-                  href="#service"
+                  Ambiental, ESG e Energia
+                </Link>
+                <Link
+                  to="/features/compliance"
                   className="block px-4 py-2 hover:text-primaryLight duration-500 transition-all"
                 >
-                  Direito Tributário
-                </a>
-                <a
-                  href="#service"
+                  Compliance e Investigações Corporativas
+                </Link>
+                <Link
+                  to="/features/concorrencial"
                   className="block px-4 py-2 hover:text-primaryLight duration-500 transition-all"
                 >
-                  Contencioso Estratégico
-                </a>
+                  Concorrencial
+                </Link>
+                <Link
+                  to="/features/contencioso"
+                  className="block px-4 py-2 hover:text-primaryLight duration-500 transition-all"
+                >
+                  Contencioso
+                </Link>
               </div>
             </div>
 
@@ -181,17 +210,14 @@ function Navbar() {
 
             <span className="text-primaryLight">•</span>
 
-            <a
-              href="#contato"
-              className="hover:text-primaryLight transition duration-500"
-            >
+            <Link to="/contato" className={linkClass("contato")}>
               CONTATO
-            </a>
+              {underline("contato")}
+            </Link>
           </div>
 
+          {/* RIGHT SIDE */}
           <section className="flex gap-4">
-            {" "}
-            {/* MOBILE BUTTON */}
             <div className="desktop1ex:hidden flex items-center gap-4">
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
@@ -200,6 +226,7 @@ function Navbar() {
                 {mobileOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
             </div>
+
             <div className="flex flex-col gap-0">
               <button className="text-white">PT</button>
               <button className="text-white/40 hover:text-white">EN</button>
@@ -211,24 +238,24 @@ function Navbar() {
       {/* MOBILE MENU */}
       {mobileOpen && (
         <div className="xl:hidden bg-primaryDark text-white px-6 pb-6 space-y-4">
-          <a href="#home" className="block">
+          <Link to="/" className="block">
             HOME
-          </a>
-          <a href="#office" className="block">
+          </Link>
+          <Link to="/about" className="block">
             NOSSO ESCRITÓRIO
-          </a>
-          <a href="#service" className="block">
+          </Link>
+          <Link to="/features" className="block">
             ÁREAS DE ATUAÇÃO
-          </a>
+          </Link>
           <a href="#team" className="block">
             ADVOGADOS
           </a>
           <a href="#reconhecimento" className="block">
             RECONHECIMENTOS
           </a>
-          <a href="#contato" className="block">
+          <Link to="/contato" className="block">
             CONTATO
-          </a>
+          </Link>
 
           <div className="flex gap-3 pt-4 border-t border-white/20">
             <button>PT</button>
