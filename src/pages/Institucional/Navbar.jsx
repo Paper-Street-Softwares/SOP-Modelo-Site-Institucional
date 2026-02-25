@@ -71,8 +71,12 @@ function Navbar() {
     setCloseTimer(timer);
   };
 
-  const linkClass = () =>
-    "relative hover:text-primaryLight transition duration-500";
+  const linkClass = (id) =>
+    `relative transition duration-500 hover:text-primaryLight ${
+      (location.pathname === "/" ? activeSection === id : currentRoute === id)
+        ? "text-primaryLight"
+        : "text-white"
+    }`;
 
   const underline = (id) =>
     (location.pathname === "/"
@@ -241,105 +245,123 @@ function Navbar() {
       </div>
 
       {/* MOBILE MENU */}
-      {mobileOpen && (
-        <div className="xl:hidden bg-primaryDark text-white px-6 pb-6 space-y-4">
-          <Link to="/" onClick={() => setMobileOpen(false)} className="block">
-            HOME
-          </Link>
+      <div
+        className={`xl:hidden bg-primaryDark text-white px-6 pb-6 space-y-4
+  transition-all duration-300 ease-out transform origin-top
+  ${
+    mobileOpen
+      ? "scale-y-100 opacity-100 translate-y-0 max-h-screen"
+      : "scale-y-0 opacity-0 -translate-y-4 max-h-0 overflow-hidden"
+  }`}
+      >
+        <Link
+          to="/"
+          onClick={() => setMobileOpen(false)}
+          className={`block ${linkClass("/")}`}
+        >
+          HOME
+        </Link>
 
-          <div>
-            <button
-              onClick={() => {
-                setMobileOfficeOpen(!mobileOfficeOpen);
-                setMobileAreasOpen(false); // fecha o outro
-              }}
-              className="w-full flex items-center justify-between"
-            >
-              <span>NOSSO ESCRITÓRIO</span>
-              <ChevronDown
-                size={16}
-                className={`transition-transform ${
-                  mobileOfficeOpen ? "rotate-180" : ""
-                }`}
-              />
-            </button>
-
-            {mobileOfficeOpen && (
-              <div className="mt-2 ml-4 flex flex-col gap-2 text-sm uppercase">
-                <Link to="/about" onClick={() => setMobileOpen(false)}>
-                  Sobre Nós
-                </Link>
-                <a href="#office" onClick={() => setMobileOpen(false)}>
-                  Track Record
-                </a>
-                <a href="#office" onClick={() => setMobileOpen(false)}>
-                  Carreira
-                </a>
-              </div>
-            )}
-          </div>
-
-          <div>
-            <button
-              onClick={() => {
-                setMobileAreasOpen(!mobileAreasOpen);
-                setMobileOfficeOpen(false);
-              }}
-              className="w-full flex items-center justify-between"
-            >
-              <span>ÁREAS DE ATUAÇÃO</span>
-              <ChevronDown
-                size={16}
-                className={`transition-transform ${
-                  mobileAreasOpen ? "rotate-180" : ""
-                }`}
-              />
-            </button>
-
-            {mobileAreasOpen && (
-              <div className="mt-2 ml-4 flex flex-col gap-2 text-sm uppercase">
-                <Link
-                  to="/features/ambiental"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Ambiental, ESG e Energia
-                </Link>
-                <Link
-                  to="/features/compliance"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Compliance e Investigações Corporativas
-                </Link>
-                <Link
-                  to="/features/concorrencial"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Concorrencial
-                </Link>
-                <Link
-                  to="/features/contencioso"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Contencioso
-                </Link>
-              </div>
-            )}
-          </div>
-
-          <Link
-            to="/contato"
-            onClick={() => setMobileOpen(false)}
-            className="block"
+        <div>
+          <button
+            onClick={() => {
+              setMobileOfficeOpen(!mobileOfficeOpen);
+              setMobileAreasOpen(false); // fecha o outro
+            }}
+            className={`w-full flex items-center justify-between ${linkClass("office")}`}
           >
-            CONTATO
-          </Link>
+            <span>NOSSO ESCRITÓRIO</span>
+            <ChevronDown
+              size={16}
+              className={`transition-transform ${
+                mobileOfficeOpen ? "rotate-180" : ""
+              }`}
+            />
+          </button>
 
-          <div className="flex gap-3 pt-4 border-t border-white/20">
+          {mobileOfficeOpen && (
+            <div className="mt-2 ml-4 flex flex-col gap-2 text-sm uppercase">
+              <Link
+                to="/about"
+                onClick={() => setMobileOpen(false)}
+                className={linkClass("office")}
+              >
+                Sobre Nós
+              </Link>
+              <a href="#office" onClick={() => setMobileOpen(false)}>
+                Track Record
+              </a>
+              <a href="#office" onClick={() => setMobileOpen(false)}>
+                Carreira
+              </a>
+            </div>
+          )}
+        </div>
+
+        <div>
+          <button
+            onClick={() => {
+              setMobileAreasOpen(!mobileAreasOpen);
+              setMobileOfficeOpen(false);
+            }}
+            className={`w-full flex items-center justify-between ${linkClass("features")}`}
+          >
+            <span>ÁREAS DE ATUAÇÃO</span>
+            <ChevronDown
+              size={16}
+              className={`transition-transform ${
+                mobileAreasOpen ? "rotate-180" : ""
+              }`}
+            />
+          </button>
+
+          {mobileAreasOpen && (
+            <div className="mt-2 ml-4 flex flex-col gap-2 text-sm uppercase">
+              <Link
+                to="/features/ambiental"
+                onClick={() => setMobileOpen(false)}
+                className={`${linkClass("/features/ambiental")}`}
+              >
+                Ambiental, ESG e Energia
+              </Link>
+              <Link
+                to="/features/compliance"
+                onClick={() => setMobileOpen(false)}
+                className={`${linkClass("/features/compliance")}`}
+              >
+                Compliance e Investigações Corporativas
+              </Link>
+              <Link
+                to="/features/concorrencial"
+                onClick={() => setMobileOpen(false)}
+                className={`${linkClass("/features/concorrencial")}`}
+              >
+                Concorrencial
+              </Link>
+              <Link
+                to="/features/contencioso"
+                onClick={() => setMobileOpen(false)}
+                className={`${linkClass("/features/contencioso")}`}
+              >
+                Contencioso
+              </Link>
+            </div>
+          )}
+        </div>
+
+        <Link
+          to="/contato"
+          onClick={() => setMobileOpen(false)}
+          className={`block ${linkClass("contato")}`}
+        >
+          CONTATO
+        </Link>
+
+        {/* <div className="flex gap-3 pt-4 border-t border-white/20">
             <button>PT</button>
             <button className="text-white/50">EN</button>
-          </div>
-        </div>
-      )}
+          </div> */}
+      </div>
     </div>
   );
 }
