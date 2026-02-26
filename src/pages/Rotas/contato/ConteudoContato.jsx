@@ -13,6 +13,7 @@ import {
   SearchCheck,
 } from "lucide-react";
 import SectionWrapper from "../../../components/sectionElements/SectionWrapper";
+import content from "../../../content/content";
 
 function Contato({ colorMode }) {
   const linksContato = {
@@ -183,8 +184,13 @@ function Contato({ colorMode }) {
         </SectionWrapper>
 
         <div className="flex gap-4 mt-14">
-          <Instagram width={20} className="text-corOutrosTextosPreto/70" />
-          <Linkedin width={20} className="text-corOutrosTextosPreto/70" />
+          <a href={content.texts.links.instagram} target="_blank">
+            {" "}
+            <Instagram width={20} className="text-white/70" />
+          </a>
+          <a href={content.texts.links.linkedin} target="_blank">
+            <Linkedin width={20} className="text-white/70" />
+          </a>
         </div>
 
         <div className="mt-14 w-full">

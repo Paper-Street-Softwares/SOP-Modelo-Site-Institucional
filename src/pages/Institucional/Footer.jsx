@@ -1,14 +1,15 @@
 import React from "react";
 import { Instagram, Linkedin, MapPin, Phone } from "lucide-react";
 import SectionArea from "../../components/sectionElements/SectionArea";
+import content from "../../content/content";
 
 export default function Footer() {
   return (
     <SectionArea paddingTopAndBottom={false}>
-      <footer className="bg-primaryDark text-white border-t w-full border-[#C03D1A]">
+      <footer className="bg-primaryDark text-white border-t w-full border-[#C03D1A] pb-10">
         <div className="flex flex-col px-[20px] tablet2:flex-row tablet2:pt-[50px] items-start justify-center gap-12">
           {/* COLUNA 1 - LOGO */}
-          <div className="flex">
+          <div className="flex self-start tablet2:self-center">
             <img
               src="https://miguelneto.com.br/wp-content/uploads/2025/04/MiguelNeto-LogoNegativo-Color-FundoTransparente.png"
               alt="Miguel Neto Advogados"
@@ -96,14 +97,13 @@ export default function Footer() {
               </div>
 
               <div className="flex gap-4 pt-2">
-                <Instagram
-                  size={18}
-                  className="cursor-pointer hover:text-primaryLight transition"
-                />
-                <Linkedin
-                  size={18}
-                  className="cursor-pointer hover:text-primaryLight transition"
-                />
+                <a href={content.texts.links.instagram} target="_blank">
+                  {" "}
+                  <Instagram width={18} className="text-white/70" />
+                </a>
+                <a href={content.texts.links.linkedin} target="_blank">
+                  <Linkedin width={18} className="text-white/70" />
+                </a>
               </div>
             </div>
 
