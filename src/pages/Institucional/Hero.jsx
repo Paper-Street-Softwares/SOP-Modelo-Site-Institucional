@@ -38,7 +38,7 @@ function Hero() {
             </h1>
           </motion.div>
         </div>
-        <div className="z-10 w-full flex justify-center absolute bottom-0 tablet2:bottom-5">
+        <div className="z-10 w-full flex justify-center absolute bottom-0 tablet2:bottom-10">
           {" "}
           <ScrollMouse />
         </div>
