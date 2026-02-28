@@ -12,10 +12,10 @@ function Navbar() {
 
   const location = useLocation();
 
-  const sections = ["home", "office", "service", "team", "reconhecimento"];
+  const sections = ["/", "office", "service", "team", "reconhecimento"];
 
   useEffect(() => {
-    if (location.pathname !== "/") return;
+    if (location.pathname !== "/" || mobileOpen) return;
 
     const observers = [];
 
@@ -41,7 +41,7 @@ function Navbar() {
     });
 
     return () => observers.forEach((observer) => observer.disconnect());
-  }, [location.pathname]);
+  }, [location.pathname, mobileOpen]);
 
   useEffect(() => {
     if (location.pathname !== "/") {
@@ -86,7 +86,9 @@ function Navbar() {
     );
 
   return (
-    <div className="bg-primaryDark fixed w-full z-50 border-b-2 border-[#C03D1A]">
+    <div
+      className={`bg-primaryDark fixed w-full z-50 ${mobileOpen ? "" : " border-b-2 border-[#C03D1A]"}`}
+    >
       <div className="max-w-7xl mx-auto px-0">
         <div className="flex items-center justify-between py-0">
           {/* LOGO */}
@@ -246,7 +248,7 @@ function Navbar() {
 
       {/* MOBILE MENU */}
       <div
-        className={`xl:hidden bg-primaryDark text-white px-6 pb-6 space-y-4
+        className={`xl:hidden bg-primaryDark text-white px-6 text-sm space-y-4 font-light
   transition-all duration-300 ease-out transform origin-top
   ${
     mobileOpen
@@ -352,7 +354,7 @@ function Navbar() {
         <Link
           to="/contato"
           onClick={() => setMobileOpen(false)}
-          className={`block ${linkClass("contato")}`}
+          className={`block ${linkClass("contato")} pb-4`}
         >
           CONTATO
         </Link>

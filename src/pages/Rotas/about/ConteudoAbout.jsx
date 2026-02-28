@@ -4,7 +4,6 @@ import { ScrollMouse } from "../../../components/animation/MouseScroll";
 import SectionArea from "../../../components/sectionElements/SectionArea";
 import imgAbout from "../../../assets/imgs/about/aboutRouteImg.webp";
 import "../../../styles/ScrollPanelDemo.css";
-import $ from "jquery";
 
 function ConteudoAbout({ colorMode }) {
   const boxRef = useRef(null);
@@ -42,15 +41,15 @@ function ConteudoAbout({ colorMode }) {
       >
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80"
+            src="https://miguelneto.com.br/wp-content/uploads/2022/11/Empresa-fotos-1-768x513.jpg"
             alt="Cityscape"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover bg-center"
           />
           <div className="absolute inset-0 bg-[#0f2a3a]/40 mix-blend-multiply" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0f2a3a] via-transparent to-transparent" />
         </div>
 
-        <div className="z-10 w-full flex justify-center absolute bottom-6">
+        <div className="z-10 w-full flex justify-center absolute bottom-0">
           <ScrollMouse />
         </div>
       </section>

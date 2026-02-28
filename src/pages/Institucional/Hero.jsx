@@ -9,11 +9,9 @@ function Hero() {
   return (
     <SectionArea className={``} paddingTopAndBottom={false}>
       <section
-        id="home"
+        id="/"
         className="relative h-[65vh] phone2:h-[80vh] phone3:h-[90vh] tablet1:h-[47vh] desktop1:h-[60vh] flex flex-col items-center justify-center overflow-hidden w-full"
       >
-        {/* Background Image - Bridge/Cityscape */}
-        {/* unsplash: "suspension bridge at night city lights" */}
         <div className="absolute inset-0 z-0">
           {" "}
           <img
@@ -31,7 +29,7 @@ function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className=" text-[29px] desktop2:text-[50px] font-mainFont font-light text-[#ECDDC6] leading-tight drop-shadow-lg">
+            <h1 className="w-fit mx-auto text-[29px] desktop2:text-[50px] font-mainFont font-light text-[#ECDDC6] leading-8 drop-shadow-lg">
               ADVOCACIA
               <br />
               FOCADA NO
@@ -40,7 +38,7 @@ function Hero() {
             </h1>
           </motion.div>
         </div>
-        <div className="z-10 w-full flex justify-center absolute bottom-6">
+        <div className="z-10 w-full flex justify-center absolute bottom-0">
           {" "}
           <ScrollMouse />
         </div>
