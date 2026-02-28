@@ -30,10 +30,10 @@ function TeamSection({ colorMode }) {
               email=" dae@miguelneto.com.br"
             />
             <TeamMember
-              img="https://miguelneto.com.br/wp-content/uploads/2016/04/Miguel_neto_600x600-2-300x300.png"
-              name="J. A Miguel Neto"
-              phone=" 11 5502-1205"
-              email=" mno@miguelneto.com.br"
+              img="https://miguelneto.com.br/wp-content/uploads/2016/04/Andre_Rizk-perfil_novo-300x300.jpg"
+              name="André Rizk"
+              phone="11 5502-1212"
+              email="ark@miguelneto.com.br"
             />
             <TeamMember
               img="https://miguelneto.com.br/wp-content/uploads/2016/04/Decio_600x600_-300x300.png"
@@ -48,10 +48,10 @@ function TeamSection({ colorMode }) {
               email=" mno@miguelneto.com.br"
             />
             <TeamMember
-              img="https://miguelneto.com.br/wp-content/uploads/2016/04/Decio_600x600_-300x300.png"
-              name="Décio Andrade"
-              phone="11 5502-1216"
-              email=" dae@miguelneto.com.br"
+              img="https://miguelneto.com.br/wp-content/uploads/2016/04/Andre_Rizk-perfil_novo-300x300.jpg"
+              name="André Rizk"
+              phone="11 5502-1212"
+              email="ark@miguelneto.com.br"
             />
             <TeamMember
               img="https://miguelneto.com.br/wp-content/uploads/2016/04/Miguel_neto_600x600-2-300x300.png"
@@ -66,10 +66,10 @@ function TeamSection({ colorMode }) {
               email=" dae@miguelneto.com.br"
             />
             <TeamMember
-              img="https://miguelneto.com.br/wp-content/uploads/2016/04/Miguel_neto_600x600-2-300x300.png"
-              name="J. A Miguel Neto"
-              phone=" 11 5502-1205"
-              email=" mno@miguelneto.com.br"
+              img="https://miguelneto.com.br/wp-content/uploads/2016/04/Andre_Rizk-perfil_novo-300x300.jpg"
+              name="André Rizk"
+              phone="11 5502-1212"
+              email="ark@miguelneto.com.br"
             />
             <TeamMember
               img="https://miguelneto.com.br/wp-content/uploads/2016/04/Decio_600x600_-300x300.png"
