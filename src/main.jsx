@@ -15,7 +15,7 @@ import Index from "./pages/Index.jsx";
 import { useColorMode } from "./context/UseContextArchive.jsx";
 import { ColorModeProvider } from "./context/UseContextArchive.jsx";
 import GlobalClickEvent from "./context/GlobalClickEvent.jsx";
-import RotaAbout from "./pages/Rotas/about/RotaAbout.jsx";
+import RouteAbout from "./pages/Rotas/about/RouteAbout.jsx";
 import { color } from "framer-motion";
 import RoutesFeatures from "./pages/Rotas/features/RoutesFeatures.jsx";
 import FeaturesAmbiental from "./pages/Rotas/features/FeatutesAmbiental.jsx";
@@ -33,7 +33,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Router>
       <Routes>
         <Route path="/" element={<Index mode={mode} />} />
-        <Route path="/about" element={<RotaAbout colorMode={mode} />} />
+        <Route path="/about" element={<RouteAbout colorMode={mode} />} />
         <Route path="/contato" element={<RouteContato colorMode={mode} />} />
 
         <Route path="/features" element={<RoutesFeatures />}>

@@ -6,7 +6,7 @@ import content from "../../content/content";
 export default function Footer() {
   return (
     <SectionArea paddingTopAndBottom={false}>
-      <footer className="bg-primaryDark text-white border-t w-full border-[#C03D1A] pb-10">
+      <footer className="bg-primaryDark text-white border-t w-full border-[#C03D1A] pb-10 font-mainFont">
         <div className="flex flex-col px-[20px] tablet2:flex-row tablet2:pt-[50px] items-start justify-center gap-12">
           {/* COLUNA 1 - LOGO */}
           <div className="flex self-start tablet2:self-center">

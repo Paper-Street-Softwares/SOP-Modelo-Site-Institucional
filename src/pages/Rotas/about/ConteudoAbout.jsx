@@ -13,7 +13,7 @@ function ConteudoAbout({ colorMode }) {
     const dot = $(".scroll-dot");
 
     el.css({
-      height: "400px",
+      height: "435px",
       overflowY: "auto",
     });
 
@@ -37,7 +37,7 @@ function ConteudoAbout({ colorMode }) {
     <div>
       <section
         id="home"
-        className="relative h-[65vh] phone2:h-[80vh] phone3:h-[90vh] tablet1:h-[47vh] flex flex-col items-center justify-center overflow-hidden w-full"
+        className="font-mainFont relative h-[65vh] phone2:h-[80vh] phone3:h-[90vh] tablet1:h-[47vh] flex flex-col items-center justify-center overflow-hidden w-full"
       >
         <div className="absolute inset-0 z-0">
           <img
@@ -45,8 +45,8 @@ function ConteudoAbout({ colorMode }) {
             alt="Cityscape"
             className="w-full h-full object-cover bg-center"
           />
-          <div className="absolute inset-0 bg-[#0f2a3a]/40 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0f2a3a] via-transparent to-transparent" />
+          {/* <div className="absolute inset-0 bg-[#0f2a3a]/40 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0f2a3a] via-transparent to-transparent" /> */}
         </div>
 
         <div className="z-10 w-full flex justify-center absolute bottom-0 tablet2:bottom-10">
@@ -65,13 +65,17 @@ function ConteudoAbout({ colorMode }) {
           <img
             src={imgAbout}
             alt="imagem representativa do Consultório"
-            className="w-full mx-auto tablet2:w-[50%] desktop1:w-[595px] z-10"
+            className="w-[90%] tablet2:w-[350px] h-fit desktop1:w-[595px] mt-24 phone2:mt-10 tablet2:mt-12 z-10"
           />
 
-          <div className="relative w-[90%] mx-auto flex tablet2:w-[555px]">
+          <div className="bg-primaryDark w-[280px] h-[200px] absolute left-1/2 -translate-x-1/2 tablet2:left-44 desktop1:translate-y-[40%] desktop1:-translate-x-[30%] desktop1:w-[350px] desktop1:h-[250px] desktop2:translate-y-[60%] desktop2:-translate-x-[20%]" />
+          <div className="relative w-[80%] mx-auto flex tablet1:w-[94%] tablet2:w-[565px]">
             {/* Área com scroll */}
-            <div ref={boxRef} className="custom-native-scroll flex-1 pt-10">
-              <p className="text-justify font-light text-black/70">
+            <div
+              ref={boxRef}
+              className="custom-native-scroll flex-1 tablet2:pt-20"
+            >
+              <p className="text-justify font-light font-mainFont text-black/70">
                 Fundado em 1990, o Miguel Neto Advogados tem seu foco na atuação
                 abrangente, envolvendo as principais áreas de atendimento ao
                 setor corporativo. Em mais de 34 anos de atividade, é
@@ -95,7 +99,7 @@ function ConteudoAbout({ colorMode }) {
             </div>
 
             {/* Linha + bolinha */}
-            <div className="scroll-indicator tablet2:mt-10">
+            <div className="scroll-indicator tablet2:mt-20">
               <span className="scroll-dot" />
             </div>
           </div>
