@@ -29,7 +29,7 @@ function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="w-fit mx-auto text-[29px] desktop2:text-[50px] font-mainFont font-light text-[#ECDDC6] leading-8 drop-shadow-lg">
+            <h1 className="w-fit mx-auto text-[29px] desktop2:text-[50px] font-mainFont font-light text-[#ECDDC6] leading-8 desktop1:leading-[60px] drop-shadow-lg">
               ADVOCACIA
               <br />
               FOCADA NO
