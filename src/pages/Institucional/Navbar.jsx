@@ -172,7 +172,7 @@ function Navbar() {
               </button>
 
               <div
-                className={`absolute top-full left-0 mt-4 bg-primaryDark shadow-xl w-64 py-3 transition-all duration-300 ${
+                className={`absolute top-full left-0 mt-4 bg-primaryDark shadow-xl w-64 py-3 transition-all duration-300 normal-case ${
                   openDropdown === "areas"
                     ? "opacity-100 visible"
                     : "opacity-0 invisible"
@@ -318,7 +318,7 @@ function Navbar() {
           </button>
 
           {mobileAreasOpen && (
-            <div className="mt-2 ml-4 flex flex-col gap-2 text-sm uppercase">
+            <div className="mt-2 ml-4 flex flex-col gap-2 text-sm normal-case">
               <Link
                 to="/features/ambiental"
                 onClick={() => setMobileOpen(false)}

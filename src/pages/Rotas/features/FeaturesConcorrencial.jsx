@@ -8,7 +8,7 @@ import bgImg from "../../../assets/imgs/features/rotas/featureConcorrencial.webp
 function FeaturesConcorrencial({ colorMode }) {
   return (
     <div id="concorrencial">
-      <section className="relative h-[65vh] phone2:h-[80vh] phone3:h-[90vh] tablet1:h-[47vh] flex flex-col items-center justify-center overflow-hidden w-full">
+      <section className="relative h-[63vh] phone2:h-[60vh] phone3:h-[65vh] tablet1:h-[68vh] tablet2:h-[73vh] desktop1:h-[56vh] flex flex-col items-center justify-center overflow-hidden w-full">
         <div className="absolute inset-0 z-0">
           <img
             src={bgImg}
@@ -19,7 +19,7 @@ function FeaturesConcorrencial({ colorMode }) {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0f2a3a] via-transparent to-transparent" /> */}
         </div>
 
-        <div className="z-10 w-full flex justify-center absolute bottom-0">
+        <div className="z-10 w-full flex justify-center absolute bottom-0 tablet2:bottom-5">
           <ScrollMouse />
         </div>
       </section>
