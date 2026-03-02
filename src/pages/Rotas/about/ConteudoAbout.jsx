@@ -61,7 +61,7 @@ function ConteudoAbout({ colorMode }) {
           className="mb-4"
         />
 
-        <div className="relative w-[90%] flex flex-col tablet2:flex-row gap-14">
+        <div className="relative w-[90%] max-w-7xl mx-auto flex flex-col tablet2:flex-row gap-14">
           <img
             src={imgAbout}
             alt="imagem representativa do Consultório"
