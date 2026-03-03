@@ -23,6 +23,7 @@ import FeaturesCompliance from "./pages/Rotas/features/FeaturesCompliance.jsx";
 import FeaturesConcorrencial from "./pages/Rotas/features/FeaturesConcorrencial.jsx";
 import FeaturesContencioso from "./pages/Rotas/features/FeaturesContencioso.jsx";
 import RouteContato from "./pages/Rotas/contato/RouteContato.jsx";
+import RouteTeam from "./pages/Rotas/team/RouteTeam.jsx";
 
 // Altere aqui para "LP" ou "site"
 const mode = "LP"; // só muda isso e o resto se adapta
@@ -35,6 +36,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/" element={<Index mode={mode} />} />
         <Route path="/about" element={<RouteAbout colorMode={mode} />} />
         <Route path="/contato" element={<RouteContato colorMode={mode} />} />
+        <Route path="/team" element={<RouteTeam colorMode={mode} />} />
 
         <Route path="/features" element={<RoutesFeatures />}>
           <Route index element={<FeaturesAmbiental />} />

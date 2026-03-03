@@ -138,18 +138,18 @@ function Navbar() {
                 </Link>
 
                 <a
-                  href="#office"
+                  href="/team"
                   className="block px-4 py-2 hover:text-primaryLight transition"
                 >
-                  Track Record
+                  Nossa equipe
                 </a>
 
-                <a
+                {/* <a
                   href="#office"
                   className="block px-4 py-2 hover:text-primaryLight transition"
                 >
                   Carreira
-                </a>
+                </a> */}
               </div>
             </div>
 
@@ -290,12 +290,12 @@ function Navbar() {
               >
                 Sobre Nós
               </Link>
-              <a href="#office" onClick={() => setMobileOpen(false)}>
-                Track Record
+              <a href="/team" onClick={() => setMobileOpen(false)}>
+                Nossa equipe
               </a>
-              <a href="#office" onClick={() => setMobileOpen(false)}>
+              {/* <a href="#office" onClick={() => setMobileOpen(false)}>
                 Carreira
-              </a>
+              </a> */}
             </div>
           )}
         </div>
