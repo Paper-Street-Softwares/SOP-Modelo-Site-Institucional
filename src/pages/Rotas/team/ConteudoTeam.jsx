@@ -5,11 +5,33 @@ import SectionArea from "../../../components/sectionElements/SectionArea";
 import "../../../styles/ScrollPanelDemo.css";
 import TeamMember from "../../../components/cards/TeamMember";
 import SectionWrapper from "../../../components/sectionElements/SectionWrapper";
+import bgImg from "../../../assets/imgs/about/backgroundequipe.webp";
 
 function ConteudoTeam({ colorMode }) {
   return (
     <div>
+      <section className="relative h-[65vh] phone2:h-[80vh] phone3:h-[90vh] tablet1:h-[47vh] flex flex-col items-center justify-center overflow-hidden w-full">
+        {" "}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={bgImg}
+            alt="Cityscape"
+            className="w-full h-full object-cover"
+          />
+          {/* <div className="absolute inset-0 bg-[#0f2a3a]/40 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0f2a3a] via-transparent to-transparent" /> */}
+        </div>
+        <div className="z-10 w-full flex justify-center absolute bottom-0 tablet2:bottom-10">
+          <ScrollMouse />
+        </div>
+      </section>
+
       <SectionArea className={`bg-[#F0E3D1]`}>
+        <SectionHeaderNovo
+          title={"Nossa Equipe"}
+          className={`mb-4`}
+          colorMode={colorMode}
+        />
         <SectionWrapper className={``}>
           <div className="mx-auto px-4 md:px-0 my-10">
             <SectionHeaderNovo
